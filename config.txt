@@ -1,0 +1,20 @@
+[paths]
+# Directory where the data from the rules archive will be extracted to.
+# Example:
+# rules_dir = /etc/suricata
+rules_dir = C:\Suricata
+
+# Where to fetch the rules from.
+archive_url = https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+
+# Each rule can be filtered by its options, filters consist of key value pairs
+# where the key is the option name and the value is a regexp that will be compiled
+# and matched against all rules that have this option.
+# Filters are ORed.
+# The blacklist is ignored if a whitelist is present.
+[filters]
+# Example:
+# blacklist = sid:2404012,msg:.*d?dos
+blacklist =
+whitelist =
+
