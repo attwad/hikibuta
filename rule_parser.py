@@ -1,5 +1,3 @@
-import collections
-import glob
 import re
 
 class Rule(object):
@@ -145,29 +143,3 @@ class Rule(object):
             self._dst_port,
             self._options,
         ))
-
-
-if __name__ == "__main__":
-  parsed = collections.Counter()
-  for g in glob.glob('C:\\Suricata\\rules\\*.rules'):
-    with open(g) as f:
-      for line in f.readlines():
-        if not Rule.is_rule_line(line):
-          continue
-        try:
-          rule = Rule(line)
-          if rule._commented:
-            parsed["#OK"]+=1
-          else:
-            parsed["OK"]+=1
-        except Exception as e:
-          print(e)
-          print(line)
-          parsed["NOT OK"]+=1
-          continue
-        if 'sid' in rule._options:
-          print(rule._options['sid'])
-        else:
-          print("No message for rule %s" % line)
-
-  print(parsed)
