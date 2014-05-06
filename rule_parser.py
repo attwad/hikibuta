@@ -1,6 +1,7 @@
 import re
 
 class Rule(object):
+  """Represents a parsed rule."""
 
   IS_RULE_PATTERN = re.compile(r'^#*\s?(alert|reject|pass|drop)\s')
 
